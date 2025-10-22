@@ -42,4 +42,3 @@ def test_dedupe_single_column_with_format():
     assert dedupe_header(input_cols, case_format="title") == ["Product_Price"]
     # 全大写格式："product_price" → "PRODUCT_PRICE"
     assert dedupe_header(input_cols, case_format="upper") == ["PRODUCT_PRICE"]
-a
