@@ -1,5 +1,10 @@
-from app import dedupe_header
+# 新增：将仓库根目录（app/与tests/的父目录）加入Python模块搜索路径
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
 
+# 原有导入语句（此时可正常从app模块的app.py中导入dedupe_header）
+from app import dedupe_header
 def test_unique_columns():
     assert dedupe_header(["id", "name", "age"]) == ["id", "name", "age"]
 
