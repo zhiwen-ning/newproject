@@ -1,3 +1,9 @@
+# 新增：将仓库根目录（app/与tests/的父目录）加入Python模块搜索路径
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
+
+# 原有导入语句（此时可正常从app模块的app.py中导入dedupe_header）
 from app import dedupe_header
 
 def test_dedupe_with_lower_format():
@@ -36,3 +42,4 @@ def test_dedupe_single_column_with_format():
     assert dedupe_header(input_cols, case_format="title") == ["Product_Price"]
     # 全大写格式："product_price" → "PRODUCT_PRICE"
     assert dedupe_header(input_cols, case_format="upper") == ["PRODUCT_PRICE"]
+a
